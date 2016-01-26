@@ -24,4 +24,4 @@ WORKDIR /app
 ADD . /app
 
 RUN ["npm", "install", "--production"]
-RUN ["node", "app", "--production"]
+CMD ["node", "app", "--production"]
