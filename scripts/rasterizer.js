@@ -7,9 +7,9 @@
  * This starts an HTTP server waiting for screenshot requests
  */
 var system = require('system');
-var basePath = system.args[0] || '/tmp/';
+var basePath = system.args[1] || '/tmp/';
 
-var port  = system.args[1] || 3001;
+var port  = system.args[2] || 3001;
 
 var defaultViewportSize = system.args[2] || '';
 defaultViewportSize = defaultViewportSize.split('x');
@@ -51,6 +51,7 @@ server = require('webserver').create();
  * javascriptEnabled: false
  * userAgent: Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+
  */
+console.log('Listening on port', port)
 service = server.listen(port, function(request, response) {
   if (request.url == '/healthCheck') {
     response.statusCode = 200;
